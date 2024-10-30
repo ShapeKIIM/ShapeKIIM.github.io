@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2566">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="ko"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;서포크레딧 Wordle 게임&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>min-height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #331fd2;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>h1, h2, #message {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #5b72f4;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.intro {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 50px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.intro-title {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 32px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #331fd2;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.intro-instructions {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.5;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #5b72f4;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#start-button, #guess-button, #continue-button {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #5b72f4;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#game-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#word-list-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.word-item {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 5px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #ddd;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #331fd2;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #e0e7ff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#game-board {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.tile {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 50px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 50px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid #ddd;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #331fd2;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.green {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #5b72f4;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.yellow {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #331fd2;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.gray {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #c0c0c0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#guess-input {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #331fd2;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #5b72f4;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#error-message {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: red;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#modal {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(0, 0, 0, 0.5);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#modal-content {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 300px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #331fd2;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;서포크레딧 Wordle 게임&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="intro" id="intro"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="intro-title"&gt;대학생 신용홍보단에 대해 알아보자!&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="intro-instructions"&gt;주어진 문장을 읽고 주어진 단어 목록의 단어를 조합하여 빈칸에 들어갈 알맞은 단어를 추측해보세요.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="intro-instructions"&gt;문제별로 6번 시도할 수 있고, 사용되는 단어이면 노란색, 사용되는 단어이면서 위치까지 맞으면 초록색으로 표시됩니다!&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button id="start-button"&gt;게임 시작&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="game-container" style="display: none;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2 id="sentence"&gt;&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="word-list-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;사용 가능한 단어 리스트&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="word-list"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="game-board"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="text" id="guess-input" placeholder="단어 입력"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button id="guess-button"&gt;추측&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p id="message"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p id="error-message" style="display: none;"&gt;단어 목록에 있는 단어를 사용해주세요.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="modal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="modal-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p id="modal-message"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="continue-button"&gt;계속&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const sets = [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>sentence: "대학생 신용홍보단은 OOOOOO에서 주최하는 활동이다",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>answer: "여신금융협회",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>wordList: ["한", "금", "여", "회", "신", "곰", "가", "융", "정", "협"],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>maxLength: 6,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>extraMessage: "여신금융협회는 여신전문금융업에 대한 연구개발 및 홍보를 통해\n여신전문금융업의 건전한 발전을 추구하는 1998년 설립된 비영리 사단법인입니다."</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>sentence: "대학생 OOOOO은 다양한 신용 지식을 습득하고 이를 영상, 카드뉴스, 부스활동 등의 다양한 활동을 통해 여신, 금융 지식을 홍보한다.",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>answer: "신용홍보단",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>wordList: ["서", "보", "레", "홍", "크", "단", "회", "용", "신", "년"],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>maxLength: 5,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>extraMessage: "대학생 신용 홍보단은 대학생의 시선에서 대학생, 청년에게 유익한 금융, 여신 정보를 전달하는 것이 목표입니다!"</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>sentence: "대학생 신용홍보단은 OOOOO으로도 불리며, 이는 돕는다는 의미의 SUPPORT와 신용을 뜻하는 CREDIT의 합성어이다",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>answer: "서포크레딧",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>wordList: ["단", "크", "홍", "서", "초", "포", "회", "딧", "용", "레"],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>maxLength: 5,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>extraMessage: "서포크레딧 활동은 2024년 기준 8기수 까지 진행되었고, 다양한 금융, 여신 정보를 전달하는 영상, 카드뉴스 제작과 부스활동을 진행하고 있습니다. 컨텐츠 제작 능력과 창의력을 발휘할 수 있다면 당신도 서포크레딧 단원이 될 수 있습니다!"</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>sentence: "대학생 신용홍보단은 갓 성인이 된 대학생, 직장을 갖게된 OOOOO 계층을 대상으로 금융 지식을 홍보하고자 노력해야한다!",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>answer: "사회초년생",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>wordList: ["보", "사", "생", "크", "딧", "회", "용", "레", "년", "초"],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>maxLength: 5,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>extraMessage: "같은 사회 초년생의 시선에서 다양한 방면에서 자신의 재능을 살려 신용에 대해 학습하고 소개하는 보람을 느끼고 싶다면 대학생 신용홍보단 활동만큼 값진 활동이 있을까요?"</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>let currentSetIndex = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let attempts = 6;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const intro = document.getElementById('intro');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const gameContainer = document.getElementById('game-container');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const sentenceElement = document.getElementById('sentence');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const gameBoard = document.getElementById('game-board');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const guessInput = document.getElementById('guess-input');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const guessButton = document.getElementById('guess-button');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const message = document.getElementById('message');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const errorMessage = document.getElementById('error-message');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const wordListContainer = document.getElementById('word-list');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const modal = document.getElementById('modal');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const modalMessage = document.getElementById('modal-message');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const continueButton = document.getElementById('continue-button');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('start-button').addEventListener('click', startGame);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>continueButton.addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>closeModal();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (currentSetIndex &lt; sets.length) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resetGame();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>message.textContent = "축하합니다! 모든 세트를 완료하셨습니다.";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function startGame() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>intro.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gameContainer.style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>resetGame();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function resetGame() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const set = sets[currentSetIndex];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>sentenceElement.textContent = set.sentence;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>wordListContainer.innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>guessInput.setAttribute("maxlength", set.maxLength);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>guessInput.setAttribute("placeholder", `${set.maxLength}글자 단어 입력`);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gameBoard.style.gridTemplateColumns = `repeat(${set.maxLength}, 50px)`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>set.wordList.forEach(word =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const wordItem = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>wordItem.textContent = word;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>wordItem.classList.add('word-item');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>wordListContainer.appendChild(wordItem);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>wordItem.addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>guessInput.value += word;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>createTiles(set.maxLength);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>attempts = 6;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>message.textContent = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>errorMessage.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>guessButton.disabled = false;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>guessInput.disabled = false;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>guessInput.value = '';<span class="Apple-converted-space">  </span>// 새 게임 시작 시 입력창 초기화</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function createTiles(maxLength) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gameBoard.innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt; attempts * maxLength; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const tile = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>tile.classList.add('tile');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>gameBoard.appendChild(tile);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function evaluateGuess(guess) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let result = [];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let answerArray = sets[currentSetIndex].answer.split('');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt; sets[currentSetIndex].maxLength; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (guess[i] === answerArray[i]) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>result.push('green');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>answerArray[i] = null;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else if (answerArray.includes(guess[i])) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>result.push('yellow');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>answerArray[answerArray.indexOf(guess[i])] = null;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>result.push('gray');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>return result;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function updateBoard(guess, result, maxLength) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const tiles = document.querySelectorAll('.tile');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const row = (6 - attempts) * maxLength;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt; maxLength; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>tiles[row + i].textContent = guess[i];</p>
+<p class="p1"><span class="Apple-converted-space">                </span>tiles[row + i].classList.add(result[i]);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function showModal(message) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>modalMessage.innerHTML = message.replace(/\n/g, "&lt;br&gt;");<span class="Apple-converted-space">  </span>// 줄바꿈 처리</p>
+<p class="p1"><span class="Apple-converted-space">            </span>modal.style.display = 'flex';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>currentSetIndex++;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function closeModal() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>modal.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>guessButton.addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const set = sets[currentSetIndex];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const guess = guessInput.value;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!set.wordList.some(word =&gt; guess.includes(word))) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>errorMessage.style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>errorMessage.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (guess.length !== set.maxLength) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>message.textContent = `${set.maxLength}글자 단어를 입력해 주세요.`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const result = evaluateGuess(guess);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>updateBoard(guess, result, set.maxLength);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>attempts--;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (guess === set.answer) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>message.textContent = `축하합니다! 정답을 맞추셨습니다.`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>guessButton.disabled = true;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>guessInput.disabled = true;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showModal(`정답을 맞추셨습니다!&lt;br&gt;&lt;br&gt;${set.extraMessage}&lt;br&gt;&lt;br&gt;계속 버튼을 눌러 다음 문제로 이동하세요.`);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else if (attempts === 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>message.textContent = `죄송합니다, 모든 시도를 사용했습니다. 정답은: ${set.answer}`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>guessButton.disabled = true;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>guessInput.disabled = true;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showModal(`정답은 ${set.answer}입니다.&lt;br&gt;&lt;br&gt;${set.extraMessage}&lt;br&gt;&lt;br&gt;계속 버튼을 눌러 다음 문제로 이동하세요.`);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>message.textContent = `남은 시도 횟수: ${attempts}`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>guessInput.value = '';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>resetGame();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
