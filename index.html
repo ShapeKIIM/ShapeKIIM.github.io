@@ -7,8 +7,8 @@
   <meta name="Generator" content="Cocoa HTML Writer">
   <meta name="CocoaVersion" content="2566">
   <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #000000; min-height: 16.0px}
   </style>
 </head>
 <body>
@@ -108,17 +108,17 @@
 <p class="p1"><span class="Apple-converted-space">        </span>}</p>
 <p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">        </span>.green {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #5b72f4;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #6aaa64;</p>
 <p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
 <p class="p1"><span class="Apple-converted-space">        </span>}</p>
 <p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">        </span>.yellow {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #331fd2;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #c9b458;</p>
 <p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
 <p class="p1"><span class="Apple-converted-space">        </span>}</p>
 <p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">        </span>.gray {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #c0c0c0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #787c7e;</p>
 <p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
 <p class="p1"><span class="Apple-converted-space">        </span>}</p>
 <p class="p2"><br></p>
@@ -157,6 +157,17 @@
 <p class="p1"><span class="Apple-converted-space">            </span>width: 300px;</p>
 <p class="p1"><span class="Apple-converted-space">            </span>color: #331fd2;</p>
 <p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#result-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#result-container h2 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
 <p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
 <p class="p1">&lt;/head&gt;</p>
 <p class="p1">&lt;body&gt;</p>
@@ -164,7 +175,7 @@
 <p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="intro" id="intro"&gt;</p>
 <p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="intro-title"&gt;대학생 신용홍보단에 대해 알아보자!&lt;/p&gt;</p>
 <p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="intro-instructions"&gt;주어진 문장을 읽고 주어진 단어 목록의 단어를 조합하여 빈칸에 들어갈 알맞은 단어를 추측해보세요.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="intro-instructions"&gt;문제별로 6번 시도할 수 있고, 사용되는 단어이면 노란색, 사용되는 단어이면서 위치까지 맞으면 초록색으로 표시됩니다!&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="intro-instructions"&gt;문제별로 5번 시도할 수 있고, 사용되는 단어이면 노란색, 사용되는 단어이면서 위치까지 맞으면 초록색으로 표시됩니다!&lt;/p&gt;</p>
 <p class="p1"><span class="Apple-converted-space">        </span>&lt;button id="start-button"&gt;게임 시작&lt;/button&gt;</p>
 <p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
 <p class="p2"><span class="Apple-converted-space">    </span></p>
@@ -188,40 +199,48 @@
 <p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
 <p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
 <p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="result-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;모든 퀴즈를 완료하셨습니다!&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;대학생 신용홍보단 서포크레딧에 대해 더욱 자세히 알고싶으시면 여신금융협회 홈페이지와 아래 링크를 참고해주세요!&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;a href="https://blog.naver.com/ehgud0411/223592660143" target="_blank"&gt;대학생 신용홍보단 블로그&lt;/a&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p id="final-message"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p id="total-attempts"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p id="total-time"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
 <p class="p1"><span class="Apple-converted-space">        </span>const sets = [</p>
 <p class="p1"><span class="Apple-converted-space">            </span>{</p>
 <p class="p1"><span class="Apple-converted-space">                </span>sentence: "대학생 신용홍보단은 OOOOOO에서 주최하는 활동이다",</p>
 <p class="p1"><span class="Apple-converted-space">                </span>answer: "여신금융협회",</p>
 <p class="p1"><span class="Apple-converted-space">                </span>wordList: ["한", "금", "여", "회", "신", "곰", "가", "융", "정", "협"],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>maxLength: 6,</p>
 <p class="p1"><span class="Apple-converted-space">                </span>extraMessage: "여신금융협회는 여신전문금융업에 대한 연구개발 및 홍보를 통해\n여신전문금융업의 건전한 발전을 추구하는 1998년 설립된 비영리 사단법인입니다."</p>
 <p class="p1"><span class="Apple-converted-space">            </span>},</p>
 <p class="p1"><span class="Apple-converted-space">            </span>{</p>
 <p class="p1"><span class="Apple-converted-space">                </span>sentence: "대학생 OOOOO은 다양한 신용 지식을 습득하고 이를 영상, 카드뉴스, 부스활동 등의 다양한 활동을 통해 여신, 금융 지식을 홍보한다.",</p>
 <p class="p1"><span class="Apple-converted-space">                </span>answer: "신용홍보단",</p>
 <p class="p1"><span class="Apple-converted-space">                </span>wordList: ["서", "보", "레", "홍", "크", "단", "회", "용", "신", "년"],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>maxLength: 5,</p>
 <p class="p1"><span class="Apple-converted-space">                </span>extraMessage: "대학생 신용 홍보단은 대학생의 시선에서 대학생, 청년에게 유익한 금융, 여신 정보를 전달하는 것이 목표입니다!"</p>
 <p class="p1"><span class="Apple-converted-space">            </span>},</p>
 <p class="p1"><span class="Apple-converted-space">            </span>{</p>
 <p class="p1"><span class="Apple-converted-space">                </span>sentence: "대학생 신용홍보단은 OOOOO으로도 불리며, 이는 돕는다는 의미의 SUPPORT와 신용을 뜻하는 CREDIT의 합성어이다",</p>
 <p class="p1"><span class="Apple-converted-space">                </span>answer: "서포크레딧",</p>
 <p class="p1"><span class="Apple-converted-space">                </span>wordList: ["단", "크", "홍", "서", "초", "포", "회", "딧", "용", "레"],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>maxLength: 5,</p>
 <p class="p1"><span class="Apple-converted-space">                </span>extraMessage: "서포크레딧 활동은 2024년 기준 8기수 까지 진행되었고, 다양한 금융, 여신 정보를 전달하는 영상, 카드뉴스 제작과 부스활동을 진행하고 있습니다. 컨텐츠 제작 능력과 창의력을 발휘할 수 있다면 당신도 서포크레딧 단원이 될 수 있습니다!"</p>
 <p class="p1"><span class="Apple-converted-space">            </span>},</p>
 <p class="p1"><span class="Apple-converted-space">            </span>{</p>
 <p class="p1"><span class="Apple-converted-space">                </span>sentence: "대학생 신용홍보단은 갓 성인이 된 대학생, 직장을 갖게된 OOOOO 계층을 대상으로 금융 지식을 홍보하고자 노력해야한다!",</p>
 <p class="p1"><span class="Apple-converted-space">                </span>answer: "사회초년생",</p>
 <p class="p1"><span class="Apple-converted-space">                </span>wordList: ["보", "사", "생", "크", "딧", "회", "용", "레", "년", "초"],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>maxLength: 5,</p>
 <p class="p1"><span class="Apple-converted-space">                </span>extraMessage: "같은 사회 초년생의 시선에서 다양한 방면에서 자신의 재능을 살려 신용에 대해 학습하고 소개하는 보람을 느끼고 싶다면 대학생 신용홍보단 활동만큼 값진 활동이 있을까요?"</p>
 <p class="p1"><span class="Apple-converted-space">            </span>}</p>
 <p class="p1"><span class="Apple-converted-space">        </span>];</p>
 <p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">        </span>let currentSetIndex = 0;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>let attempts = 6;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const maxAttempts = 5;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let attempts;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let totalAttempts = 0;<span class="Apple-converted-space">  </span>// 총 소모한 시도 횟수</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const startTime = new Date();<span class="Apple-converted-space">  </span>// 게임 시작 시간</p>
 <p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">        </span>const intro = document.getElementById('intro');</p>
 <p class="p1"><span class="Apple-converted-space">        </span>const gameContainer = document.getElementById('game-container');</p>
@@ -235,15 +254,14 @@
 <p class="p1"><span class="Apple-converted-space">        </span>const modal = document.getElementById('modal');</p>
 <p class="p1"><span class="Apple-converted-space">        </span>const modalMessage = document.getElementById('modal-message');</p>
 <p class="p1"><span class="Apple-converted-space">        </span>const continueButton = document.getElementById('continue-button');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const resultContainer = document.getElementById('result-container');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const finalMessage = document.getElementById('final-message');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const totalAttemptsElement = document.getElementById('total-attempts');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const totalTimeElement = document.getElementById('total-time');</p>
 <p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('start-button').addEventListener('click', startGame);</p>
 <p class="p1"><span class="Apple-converted-space">        </span>continueButton.addEventListener('click', () =&gt; {</p>
 <p class="p1"><span class="Apple-converted-space">            </span>closeModal();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (currentSetIndex &lt; sets.length) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>resetGame();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>message.textContent = "축하합니다! 모든 세트를 완료하셨습니다.";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
 <p class="p1"><span class="Apple-converted-space">        </span>});</p>
 <p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">        </span>function startGame() {</p>
@@ -253,12 +271,13 @@
 <p class="p1"><span class="Apple-converted-space">        </span>}</p>
 <p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">        </span>function resetGame() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>attempts = maxAttempts;<span class="Apple-converted-space">  </span>// 각 세트 시작 시 시도 회수 5회로 초기화</p>
 <p class="p1"><span class="Apple-converted-space">            </span>const set = sets[currentSetIndex];</p>
 <p class="p1"><span class="Apple-converted-space">            </span>sentenceElement.textContent = set.sentence;</p>
 <p class="p1"><span class="Apple-converted-space">            </span>wordListContainer.innerHTML = '';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>guessInput.setAttribute("maxlength", set.maxLength);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>guessInput.setAttribute("placeholder", `${set.maxLength}글자 단어 입력`);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gameBoard.style.gridTemplateColumns = `repeat(${set.maxLength}, 50px)`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>guessInput.setAttribute("maxlength", set.answer.length);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>guessInput.setAttribute("placeholder", `${set.answer.length}글자 단어 입력`);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gameBoard.style.gridTemplateColumns = `repeat(${set.answer.length}, 50px)`;</p>
 <p class="p1"><span class="Apple-converted-space">            </span>set.wordList.forEach(word =&gt; {</p>
 <p class="p1"><span class="Apple-converted-space">                </span>const wordItem = document.createElement('div');</p>
 <p class="p1"><span class="Apple-converted-space">                </span>wordItem.textContent = word;</p>
@@ -268,18 +287,17 @@
 <p class="p1"><span class="Apple-converted-space">                    </span>guessInput.value += word;</p>
 <p class="p1"><span class="Apple-converted-space">                </span>});</p>
 <p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">            </span>createTiles(set.maxLength);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>attempts = 6;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>createTiles(set.answer.length);</p>
 <p class="p1"><span class="Apple-converted-space">            </span>message.textContent = '';</p>
 <p class="p1"><span class="Apple-converted-space">            </span>errorMessage.style.display = 'none';</p>
 <p class="p1"><span class="Apple-converted-space">            </span>guessButton.disabled = false;</p>
 <p class="p1"><span class="Apple-converted-space">            </span>guessInput.disabled = false;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>guessInput.value = '';<span class="Apple-converted-space">  </span>// 새 게임 시작 시 입력창 초기화</p>
+<p class="p1"><span class="Apple-converted-space">            </span>guessInput.value = '';</p>
 <p class="p1"><span class="Apple-converted-space">        </span>}</p>
 <p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">        </span>function createTiles(maxLength) {</p>
 <p class="p1"><span class="Apple-converted-space">            </span>gameBoard.innerHTML = '';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt; attempts * maxLength; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt; maxAttempts * maxLength; i++) {</p>
 <p class="p1"><span class="Apple-converted-space">                </span>const tile = document.createElement('div');</p>
 <p class="p1"><span class="Apple-converted-space">                </span>tile.classList.add('tile');</p>
 <p class="p1"><span class="Apple-converted-space">                </span>gameBoard.appendChild(tile);</p>
@@ -290,7 +308,7 @@
 <p class="p1"><span class="Apple-converted-space">            </span>let result = [];</p>
 <p class="p1"><span class="Apple-converted-space">            </span>let answerArray = sets[currentSetIndex].answer.split('');</p>
 <p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt; sets[currentSetIndex].maxLength; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt; sets[currentSetIndex].answer.length; i++) {</p>
 <p class="p1"><span class="Apple-converted-space">                </span>if (guess[i] === answerArray[i]) {</p>
 <p class="p1"><span class="Apple-converted-space">                    </span>result.push('green');</p>
 <p class="p1"><span class="Apple-converted-space">                    </span>answerArray[i] = null;</p>
@@ -307,7 +325,7 @@
 <p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">        </span>function updateBoard(guess, result, maxLength) {</p>
 <p class="p1"><span class="Apple-converted-space">            </span>const tiles = document.querySelectorAll('.tile');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const row = (6 - attempts) * maxLength;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const row = (maxAttempts - attempts) * maxLength;</p>
 <p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt; maxLength; i++) {</p>
 <p class="p1"><span class="Apple-converted-space">                </span>tiles[row + i].textContent = guess[i];</p>
@@ -316,13 +334,28 @@
 <p class="p1"><span class="Apple-converted-space">        </span>}</p>
 <p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">        </span>function showModal(message) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>modalMessage.innerHTML = message.replace(/\n/g, "&lt;br&gt;");<span class="Apple-converted-space">  </span>// 줄바꿈 처리</p>
+<p class="p1"><span class="Apple-converted-space">            </span>modalMessage.innerHTML = message.replace(/\n/g, "&lt;br&gt;");</p>
 <p class="p1"><span class="Apple-converted-space">            </span>modal.style.display = 'flex';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>currentSetIndex++;</p>
 <p class="p1"><span class="Apple-converted-space">        </span>}</p>
 <p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">        </span>function closeModal() {</p>
 <p class="p1"><span class="Apple-converted-space">            </span>modal.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>currentSetIndex++;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (currentSetIndex &lt; sets.length) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resetGame();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>endGame();<span class="Apple-converted-space">  </span>// 모든 세트를 완료했을 때</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function endGame() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const endTime = new Date();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const totalTime = Math.round((endTime - startTime) / 1000);<span class="Apple-converted-space">  </span>// 총 소요 시간 (초)</p>
+<p class="p1"><span class="Apple-converted-space">            </span>resultContainer.style.display = 'flex';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gameContainer.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>finalMessage.textContent = "모든 퀴즈를 완료하셨습니다!";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>totalAttemptsElement.textContent = `소모한 시도 횟수: ${totalAttempts}`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>totalTimeElement.textContent = `총 소요시간: ${totalTime}초`;</p>
 <p class="p1"><span class="Apple-converted-space">        </span>}</p>
 <p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">        </span>guessButton.addEventListener('click', () =&gt; {</p>
@@ -336,14 +369,15 @@
 <p class="p1"><span class="Apple-converted-space">                </span>errorMessage.style.display = 'none';</p>
 <p class="p1"><span class="Apple-converted-space">            </span>}</p>
 <p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (guess.length !== set.maxLength) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>message.textContent = `${set.maxLength}글자 단어를 입력해 주세요.`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (guess.length !== set.answer.length) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>message.textContent = `${set.answer.length}글자 단어를 입력해 주세요.`;</p>
 <p class="p1"><span class="Apple-converted-space">                </span>return;</p>
 <p class="p1"><span class="Apple-converted-space">            </span>}</p>
 <p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">            </span>const result = evaluateGuess(guess);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>updateBoard(guess, result, set.maxLength);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>updateBoard(guess, result, set.answer.length);</p>
 <p class="p1"><span class="Apple-converted-space">            </span>attempts--;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>totalAttempts++;<span class="Apple-converted-space">  </span>// 총 소모한 시도 횟수 증가</p>
 <p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">            </span>if (guess === set.answer) {</p>
 <p class="p1"><span class="Apple-converted-space">                </span>message.textContent = `축하합니다! 정답을 맞추셨습니다.`;</p>
